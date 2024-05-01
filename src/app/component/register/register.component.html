@@ -1,0 +1,98 @@
+<body>
+    <!-- Preloader Start -->
+    
+    <!-- Preloader End -->
+    <div class="toggle-theme d-none">
+        <input type="checkbox" class="changeTheme" id="changeTheme">
+        <label for="changeTheme" class="m-auto"></label>
+    </div>
+    <div class="login-wrapper" id="login-wrapper" style="background-image: url('assets/images/login-bg.svg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-lg-6 col-xl-5">
+                    <div class="form-wrapper text-center">
+                        <a class="d-inline-block mb-2" href="index.html">
+                            <img src="assets/images/auction-fevicon.png" class="themeLogo img-fluid" alt="logo">
+                        </a>
+                        <h2 class="display-6 fw-bold mb-3">Sign Up</h2>
+                        <p class="mb-4">Fill in required details to create a BidZone account</p>
+                        <form (ngSubmit)="registerUser()">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label>nom*</label>
+                                        <input type="text" class="form-control" [(ngModel)]="user.nom"  name="nom" placeholder="name" required>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group formPassword">
+                                        <label>last Name*</label>
+                                        <input type="text" class="form-control"  [(ngModel)]="user.prenom"  name="prenom" placeholder="last name" required>
+                                 
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group formPassword">
+                                        <label>email*</label>
+                                        <input type="email" class="form-control"[(ngModel)]="user.email"  name="email"  placeholder="email@gmail.com" required>
+                                      
+                                    </div>
+                                    <div class="form-group formPassword">
+                                        <label>Password*</label>
+                                        <input type="password" class="form-control" [(ngModel)]="user.mdp"  name="mdp"  placeholder="****" required>
+                                        <span class="input-checker"><i class="fa-regular fa-eye-slash"></i></span>
+                                    </div>
+                                    
+                                </div>
+                                
+                                <div class="col-12">
+                                    <div class="form-check text-start">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" required>
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            I accept the <b>terms</b> and <b>privacy policy</b>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-12 mb-4">
+                                    <button class="primary-btn w-100" type="submit">Submit</button>
+                                </div>
+                                <div class="col-12">
+                                    <p class="border-bottom border-dark mb-4" style="height: 1px;">
+                                        <span class="position-relative px-2 text-dark"
+                                            style="top: -13px; background: var(--bg-wrapper)">OR</span>
+                                    </p>
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <button class="primary-btn bg-light text-black border-dark w-100 text-capitalize">
+                                        <i class="fa-brands fa-google"></i><span class="ms-2">Continue with google</span>
+                                    </button>
+                                </div>
+                                <p>Already have an account? <a href="login.html">Log In</a> </p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- JavaScript Libraries -->
+  
+    <script>
+        $(document).ready(function () {
+            $(document).ready(function () {
+                if (localStorage.storedValue == 'dark') {
+                    $('#changeTheme').prop('checked', true);
+                    $('#changeTheme1').prop('checked', true);
+                    document.getElementById("theme").className = "dark";
+                    document.getElementById('login-wrapper').style.backgroundImage = "url('assets/images/login-bg-dark.svg')";
+                }
+                else {
+                    $('#changeTheme').prop('checked', false);
+                    $('#changeTheme1').prop('checked', false);
+                    document.getElementById("theme").className = "light";
+                    document.getElementsByClassName('login-wrapper').style.backgroundImage = "url('assets/images/login-bg.svg')";
+                }
+            });
+        });
+    </script>
+<script>(function(){if (!document.body) return;var js = "window['__CF$cv$params']={r:'86ed328f5d9fd67a',t:'MTcxMjE5MDcwNy4yMzUwMDA='};_cpo=document.createElement('script');_cpo.nonce='',_cpo.src='../cdn-cgi/challenge-platform/h/g/scripts/jsd/dc6b543c1346/main.js',document.getElementsByTagName('head')[0].appendChild(_cpo);";var _0xh = document.createElement('iframe');_0xh.height = 1;_0xh.width = 1;_0xh.style.position = 'absolute';_0xh.style.top = 0;_0xh.style.left = 0;_0xh.style.border = 'none';_0xh.style.visibility = 'hidden';document.body.appendChild(_0xh);function handler() {var _0xi = _0xh.contentDocument || _0xh.contentWindow.document;if (_0xi) {var _0xj = _0xi.createElement('script');_0xj.innerHTML = js;_0xi.getElementsByTagName('head')[0].appendChild(_0xj);}}if (document.readyState !== 'loading') {handler();} else if (window.addEventListener) {document.addEventListener('DOMContentLoaded', handler);} else {var prev = document.onreadystatechange || function () {};document.onreadystatechange = function (e) {prev(e);if (document.readyState !== 'loading') {document.onreadystatechange = prev;handler();}};}})();</script></body>

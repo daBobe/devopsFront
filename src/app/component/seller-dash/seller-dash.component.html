@@ -1,0 +1,117 @@
+<main id="main-content" class="position-relative">
+    <div class="breadcrumb-main">
+        <div class="container">
+            <div class="d-flex flex-column flex-md-row align-items-center justify-content-between">
+                <ol class="breadcrumb m-0">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+                </ol>
+                <h1 class="breadcrumb-title">Personal Dashboard</h1>
+            </div>
+        </div>
+    </div>
+    <div class="inner-gap">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 pe-lg-0 position-relative">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div class="d-flex align-items-center gap-3 mt-3 mb-4">
+                            <img src="assets/images/avatar-5.png" class="dashboard-avatar" alt="avatar">
+                            <div>
+                                <h5>Rozzy Nomad</h5>
+                                <p>system@mail.com</p>
+                            </div>
+                        </div>
+
+                        <button class="primary-btn dashboard-toggler d-block d-lg-none" id="sidebarMenuOpen">
+                            <i class="fa-solid fa-bars"></i>
+                        </button>
+                    </div>
+                    <div class="dashboard-sidebar">
+                        <div class="sidebar-menu">
+                            <ul>
+                                <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }">
+                                    <a routerLink="/dash">
+                                        <i class="fa-solid fa-house"></i> <span>Dashboard</span>
+                                    </a>
+                                </li>
+                                <li [routerLinkActive]="['active']">
+                                    <a routerLink="/dash/create" >
+                                        <i class="fa-solid fa-user"></i> <span>create bid</span>
+                                    </a>
+                                </li>
+                                <li [routerLinkActive]="['active']">
+                                    <a routerLink="/dash/myBids">
+                                        <i class="fa-solid fa-gavel"></i> <span>My Bids</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)">
+                                        <i class="fa-solid fa-trophy"></i> <span>Winning Bids</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)">
+                                        <i class="fa-solid fa-bell"></i> <span>My Alerts</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)">
+                                        <i class="fa-solid fa-star"></i> <span>My Favorite</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-9 ps-md-0">
+                    <div class="dashboard-data">
+                        <div class="row g-3 mb-3 mb-md-5">
+                            <div class="col-md-4">
+                                <div class="card-wrapper">
+                                    <div class="d-flex gap-4">
+                                        <i class="fa-solid fa-gavel text-orange"></i>
+                                        <div>
+                                            <h3 class="fw-bold">80</h3>
+                                            <p>Active Bids</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card-wrapper">
+                                    <div class="d-flex gap-4">
+                                        <i class="fa-solid fa-trophy text-orange"></i>
+                                        <div>
+                                            <h3 class="fw-bold">15</h3>
+                                            <p>Item Won</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card-wrapper">
+                                    <div class="d-flex gap-4">
+                                        <i class="fa-solid fa-star text-orange"></i>
+                                        <div>
+                                            <h3 class="fw-bold">124</h3>
+                                            <p>Favorite</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="bidding-detail-wrapper">
+                                <div class="tab-content dashboard-bidding" id="productDetailTab">
+                                   <h1 *ngIf="showMainContent"> main content </h1>
+                                    <router-outlet></router-outlet>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </div>
+</main>

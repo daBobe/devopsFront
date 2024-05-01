@@ -1,0 +1,309 @@
+<main id="main-content" class="position-relative">
+    
+    <section class="outer-gap">
+        <div class="container">
+            <div class="swiper categorySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <a href="browse-bid.html">
+                            <div class="category-card">
+                                <img src="assets/images/jewelary-img.png" alt="category-img">
+                                <h5>JEWELLERY</h5>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="browse-bid.html">
+                            <div class="category-card">
+                                <img src="assets/images/real-estate-img.png" alt="category-img">
+                                <h5>REAL ESTATE</h5>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="browse-bid.html">
+                            <div class="category-card">
+                                <img src="assets/images/sports-img.png" alt="category-img">
+                                <h5>SPORTS</h5>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="browse-bid.html">
+                            <div class="category-card">
+                                <img src="assets/images/vehicles-img.png" alt="category-img">
+                                <h5>VEHICLES</h5>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="browse-bid.html">
+                            <div class="category-card">
+                                <img src="assets/images/music-img.png" alt="category-img">
+                                <h5>MUSIC</h5>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="browse-bid.html">
+                            <div class="category-card">
+                                <img src="assets/images/clothes-img.png" alt="category-img">
+                                <h5>CLOTHES</h5>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    <section class="outer-gap">
+        <div class="container">
+            <h2 class="section-title">Live Auction</h2>
+            <div class="row gy-4">
+              <div class="col-lg-6" *ngFor="let item of auctionItems.slice(0, 1)">
+                <div class="auction-card">
+                  <div class="card-image left-card-image">
+                    <img [src]="item.photo"class="h-100 w-100" alt="auction-card-img">
+                    <!-- Timer and other card content goes here -->
+                    <div class="timer-wrapper">
+                        <div class="timer-inner">
+                            <span class="days">
+                                <span class="">{{ item.remainingDays }}</span>
+                                <span class="">D</span>
+                            </span>:
+                            <span class="hours">
+                                <span class="">{{ item.remainingHours }}</span>
+                                <span class="">H</span>
+                            </span>:
+                            <span class="minutes">
+                                <span class="">{{ item.remainingMinutes }}</span>
+                                <span class="">M</span>
+                            </span>:
+                            <span class="seconds">
+                                <span class="">{{ item.remainingSeconds }}</span>
+                                <span class="">S</span>
+                            </span>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="card-content">
+                    <h4>{{ item.description }}</h4>
+                    <p>Current bid <span>{{ item.prixinit }}$</span></p>
+                    <!-- Other card content goes here -->
+                    <div class="d-flex justify-content-between align-items-center">
+                        <a [routerLink]="['/details', item._id]" class="primary-btn">Bid Now</a>
+                        <button class="like-btn"><i class="fa-regular fa-heart"></i></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="auction-card-small">
+                    <div class="row gy-3">
+                      
+                        
+                      
+                        <div class="col-md-6" *ngFor="let item1 of auctionItems.slice(1, 5)">
+                            <div class="auction-card">
+                                <div class="card-image">
+                                    <img  [src]="item1.photo" class="img-fluid"
+                                        alt="auction-card-img">
+                                        <div class="timer-wrapper">
+                                            <div class="timer-inner">
+                                                <span class="days">
+                                                    <span class="">{{ item1.remainingDays }}</span>
+                                                    <span class="">D</span>
+                                                </span>:
+                                                <span class="hours">
+                                                    <span class="">{{ item1.remainingHours }}</span>
+                                                    <span class="">H</span>
+                                                </span>:
+                                                <span class="minutes">
+                                                    <span class="">{{ item1.remainingMinutes }}</span>
+                                                    <span class="">M</span>
+                                                </span>:
+                                                <span class="seconds">
+                                                    <span class="">{{ item1.remainingSeconds }}</span>
+                                                    <span class="">S</span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                </div>
+                                <div class="card-content">
+                                    <h4>{{ item1.description }}</h4>
+                                    <p>Current bid <span>{{ item1.prixinit }}$</span></p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <a  (click)=" bidDetails(item1._id)" class="primary-btn">Bid Now</a>
+                                        <button class="like-btn"><i class="fa-regular fa-heart"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+              <div class="col-12 text-center">
+                <a (click)="onViewAllBidsClick()" class="primary-btn dark-btn mt-3 mt-md-5">VIEW ALL BID</a>
+            </div>
+            </div>
+            
+          </div>
+    </section>
+    <section class="outer-gap inner-gap bg-light">
+        <div class="container">
+            <h2 class="section-title">Upcoming Auctions</h2>
+            <div class="row gy-4">
+                <div class="col-lg-6">
+                    <div class="upcoming-auction position-relative bg-orange">
+                        <div class="row gy-4">
+                            <div class="col-md-6 text-white position-relative">
+                                <h3 class="upcoming-title line-clamp line-clamp-2">Final Match Football Studs</h3>
+                                <p class="line-clamp line-clamp-4">Experience the timeless charm of the vintage
+                                    coffee bean grinder, meticulously crafted to bring you the perfect grind for a
+                                    rich and flavorful cup of coffee.</p>
+                                <a href="bid-detail.html" class="primary-btn light-btn">Bid Now</a>
+                            </div>
+                            <div class="col-md-6 position-relative">
+                                <div class="upcoming-img">
+                                    <img src="../../../assets/images/thumb-auction-img-3.png"
+                                        class="w-100 h-100 object-contain" alt="Final Match Football Studs">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="upcoming-auction position-relative bg-blue">
+                        <div class="row gy-4">
+                            <div class="col-md-6 text-white position-relative">
+                                <h3 class="upcoming-title line-clamp line-clamp-2">Ancient Greek Goddess of Victory
+                                </h3>
+                                <p class="line-clamp line-clamp-4">Inspire greatness and achievement with our
+                                    stunning sculpture depicting the legendary goddess of victory, Nike.</p>
+                                <a href="bid-detail.html" class="primary-btn light-btn">Bid Now</a>
+                            </div>
+                            <div class="col-md-6 position-relative">
+                                <div class="upcoming-img">
+                                    <img src="../../../assets/images/thumb-auction-img-1.png"
+                                        class="w-100 h-100 object-contain" alt="Ancient Greek Goddess of Victory">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="recent-auction outer-gap">
+        <div class="container">
+            <h2 class="section-title">Recent Auctions</h2>
+            <div class="auction-card-small">
+                <div class="row gy-4 justify-content-center">
+                    <div class="col-md-6 col-lg-4 col-xl-3" *ngFor="let item of OldauctionItems.slice(0, 7)">
+                        <div class="auction-card">
+                            <div class="card-image">
+                                <img [src]="item.photo" alt="auction-card-img">
+                                <div class="timer-wrapper">
+                                    <div class="timer-inner">
+                                        <span class="days">
+                                            <span class="">{{ item.remainingDays }}</span>
+                                            <span class="">D</span>
+                                        </span>:
+                                        <span class="hours">
+                                            <span class="">{{ item.remainingHours }}</span>
+                                            <span class="">H</span>
+                                        </span>:
+                                        <span class="minutes">
+                                            <span class="">{{ item.remainingMinutes }}</span>
+                                            <span class="">M</span>
+                                        </span>:
+                                        <span class="seconds">
+                                            <span class="">{{ item.remainingSeconds }}</span>
+                                            <span class="">S</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-content">
+                                <a href="bid-detail.html" class="card-title">{{ item.description }}</a>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <p class="p-0">Current bid <span>{{ item.prixactuelle }}$</span></p>
+                                    <button class="like-btn"><i class="fa-regular fa-heart"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="outer-gap">
+        <div class="container">
+            <h2 class="section-title">Trusted By 500+ Businesses</h2>
+            <div class="row gy-4 text-center align-items-center">
+                <div class="col-6 col-md-4 col-xl-2">
+                    <div class="client-logo py-2">
+                        <img src="../../../assets/images/client-logo-1.png" class="w-100" alt="client-logo">
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-xl-2">
+                    <div class="client-logo py-2">
+                        <img src="../../../assets/images/client-logo-2.png" class="w-100" alt="client-logo">
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-xl-2">
+                    <div class="client-logo py-2">
+                        <img src="../../../assets/images/client-logo-3.png" class="w-100" alt="client-logo">
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-xl-2">
+                    <div class="client-logo py-2">
+                        <img src="../../../assets/images/client-logo-4.png" class="w-100" alt="client-logo">
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-xl-2">
+                    <div class="client-logo py-2">
+                        <img src="../../../assets/images/client-logo-5.png" class="w-100" alt="client-logo">
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-xl-2">
+                    <div class="client-logo py-2">
+                        <img src="../../../assets/images/client-logo-6.png" class="w-100" alt="client-logo">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="outer-gap">
+        <div class="container">
+            <div class="subscribe-wrapper position-relative">
+                <div class="row align-items-center justify-content-center position-relative">
+                    <div class="col-lg-6 text-white">
+                        <h3 class="display-6 fw-bold mb-2">Want to Join Us?</h3>
+                        <p class="mb-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                            tempor incididunt ut labore et dolore magna aliqua. Pulvinar etiam quam lacus
+                            suspendiss.</p>
+                        <form class="subscribe-form">
+                            <input type="search" class="form-control" placeholder="Email Search">
+                            <button type="submit" class="rounded-circle bg-dark">
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </form>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="subscribe-img d-none d-lg-block">
+                            <img src="../../../assets/images/join-us.png" class="w-100 rounded-5" alt="subscribe-img">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+<script>
+    
+
+
+</script>
