@@ -20,7 +20,7 @@ FROM nginx:alpine
 
 # Copy compiled Angular files from the first stage
 # Make sure to copy from the right directory under /app/dist/   
-COPY --from=builder /app/dist/angular-16-crud /usr/share/nginx/html
+COPY --from=builder /app/dist/project-bid /usr/share/nginx/html
 
 # Copy custom Nginx configuration (if you have one)
 COPY nginx.conf /etc/nginx/conf.d/default.conf
@@ -30,3 +30,4 @@ EXPOSE 80
 
 # Use the "exec" form of CMD to ensure that Nginx stays in the foreground
 CMD ["nginx", "-g", "daemon off;"]
+
